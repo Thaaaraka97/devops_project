@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Fetch code from the GitHub repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], 
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
                          userRemoteConfigs: [[url: 'https://github.com/Thaaaraka97/devops_project.git']]])
             }
         }

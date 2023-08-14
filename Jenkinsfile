@@ -75,9 +75,19 @@ pipeline {
         
         success {
             echo 'Deployment successful!'
+
+            // logout of dockerhub
+            script{
+                sh 'docker logout'
+            }
         }
         failure {
             echo 'Deployment failed!'
+
+            // logout of dockerhub
+            script{
+                sh 'docker logout'
+            }
         }
     }
 }

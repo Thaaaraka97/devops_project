@@ -36,7 +36,7 @@ pipeline {
                 sh """
                     docker run --name test_container -d -p 80:80 ${DOCKER_IMAGE}:${DOCKER_TAG}
                     sleep 10 
-                    curl -f http://localhost:8080 || exit 1
+                    curl -f http://localhost:80 || exit 1
                     docker stop test_container
                     docker rm test_container
                 """

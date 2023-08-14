@@ -66,6 +66,21 @@ pipeline {
         }
     }
 
+	stage('Upload to S3') {
+	    steps {
+	        withCredentials([
+	            usernamePassword(credentialsId: aws-credentials', usernameVariable: 'AKIAZIWSGKFS334KDZ22', passwordVariable: 'FxaSmyxnpVvHQ2o4mprEAhO1JJedNzTHpTfiYUHa'),
+	            ]) {
+	            sh """
+	                aws configure set aws_access_key_id AKIAZIWSGKFS334KDZ22
+	                aws configure set aws_secret_access_key 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
+	                aws configure set region ca-central-1
+	                aws s3 cp ${DOCKER_IMAGE}.tar s3://devopsbucket729/artifact/
+	            """
+	        }
+	    }
+	}
+
     post {
         
         success {

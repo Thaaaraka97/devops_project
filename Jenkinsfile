@@ -35,8 +35,8 @@ pipeline {
             steps {
                 sh """
                     docker run --name test_container -d -p 80:80 ${DOCKER_IMAGE}:${DOCKER_TAG}
-                    sleep 10 // Give the container some time to start
-                    curl -f http://localhost:8080 || exit 1 // Basic test to check if the web server is responding
+                    sleep 10 
+                    curl -f http://localhost:8080 || exit 1
                     docker stop test_container
                     docker rm test_container
                 """

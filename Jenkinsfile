@@ -11,7 +11,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+        stage('Checkout Stage') {
             steps {
                 // Fetch code from the GitHub repository
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], 
@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-		stage('Test') {
+		stage('Testing Stage') {
             steps {
                 sh """
                     docker run --name test_container -d -p 80:80 ${DOCKER_IMAGE}:${DOCKER_TAG}

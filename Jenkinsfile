@@ -34,8 +34,8 @@ pipeline {
 		stage('Testing Stage') {
             steps {
                 sh """
-					docker stop test_container || true; 
-                    docker rm test_container || true; 
+					docker stop test_container || true 
+                    docker rm test_container || true 
                     docker run --name test_container -d -p 80:80 ${DOCKER_IMAGE}:${DOCKER_TAG}
                     sleep 10 
                     curl -f http://localhost:80 || exit 1

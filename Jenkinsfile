@@ -68,7 +68,7 @@ pipeline {
 		stage('Upload to S3') {
 		    steps {
 		        withCredentials([
-		            usernamePassword(credentialsId: aws-credentials', usernameVariable: 'AKIAZIWSGKFS334KDZ22', passwordVariable: 'FxaSmyxnpVvHQ2o4mprEAhO1JJedNzTHpTfiYUHa'),
+		            usernamePassword(credentialsId: 'aws-credentials', usernameVariable: 'AKIAZIWSGKFS334KDZ22', passwordVariable: 'FxaSmyxnpVvHQ2o4mprEAhO1JJedNzTHpTfiYUHa'),
 		            ]) {
 		            sh """
 		                aws configure set aws_access_key_id AKIAZIWSGKFS334KDZ22
